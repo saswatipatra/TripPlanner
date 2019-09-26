@@ -41,7 +41,7 @@ A web site were you can add and check list of your different trip you would like
 | `api/Maps/` | GET |  Returns a specific Map |
 
 ## Flow chart and Mock up Structure
-![flowchart showing components and routes](.wwwroot/images/FlowChart.jpg)
+![FlowChart](https://user-images.githubusercontent.com/51075552/65715071-3fde0b00-e051-11e9-852b-f988f4498099.jpg)
 ![Mockup showing HomePage](~/images/Mockup/HomePage.jpg)
 ![Mockup showing SignUp](~/images/Mockup/SignUp.jpg)
 ![Mockup showing UserWelcomePage](~/images/Mockup/UserWelcomePage.jpg)
