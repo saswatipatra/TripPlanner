@@ -20,9 +20,9 @@ namespace TripPlanner.Controllers
         }
 
         [HttpPost("/trips")]
-        public ActionResult Create(string userName, string tripName, int tripDate)
+        public ActionResult Create(string tripName, string startDate , string endDate)
         {
-            Trip myTrip = new Trip(userName, tripName, tripDate);
+            Trip myTrip = new Trip(tripName, startDate, endDate);
             return RedirectToAction("Index");
         }
     }
