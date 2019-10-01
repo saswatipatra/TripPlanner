@@ -1,9 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TripPlanner.Models
 {
-    public class TripPlannerContext : IdentityDbContext<ApplicationUser>
+    public class TripPlannerContext : DbContext
     {
         public virtual DbSet<Userprofile> UserProfiles { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
