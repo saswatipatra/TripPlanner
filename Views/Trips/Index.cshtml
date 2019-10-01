@@ -1,0 +1,13 @@
+@using TripPlanner.Models;
+
+<h1>Car TripPlanner</h1>
+<ul>
+@for(int i=0; i<Model.Count; i++)
+{
+    <li>@Model[i]._UserName</li>
+    <li>@Model[i]._TripName</li>
+    <li>@Model[i]._TripDate</li>
+
+}
+</ul>
+<a href="/trips/new">Add a new Trip details.</a>
