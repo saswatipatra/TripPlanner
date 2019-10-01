@@ -12,9 +12,15 @@ namespace TripPlanner.Models
         public int TripId {get; set;}
         public int UserId {get; set;}
         public string TripName { get; set; }
+        public string TripLocation {get; set;}
         public string TripStartDate { get; set; }
         public string TripEndDate { get; set; }
 
-       
+        public ICollection<Day> Days { get; set; }
+
+        public Trip()
+        {
+            this.Days = new HashSet<Day>();
+        }
     }
 }
