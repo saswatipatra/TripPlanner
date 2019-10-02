@@ -5,7 +5,7 @@ namespace TripPlanner.ViewModels
 {
     public class HomeDetailsViewModel
     {
-        public Userprofile Userprofile { get; set; }
+        public UserProfile UserProfile { get; set; }
         public Trip Trip {get;set;}
         
     }

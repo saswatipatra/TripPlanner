@@ -25,7 +25,7 @@ namespace TripPlanner.Controllers
 
         public ActionResult Index()
         {
-            List<Userprofile> model = _db.UserProfiles.ToList();
+            List<UserProfile> model = _db.UserProfiles.ToList();
             return View(model);
         }
         [HttpGet]
@@ -61,14 +61,14 @@ namespace TripPlanner.Controllers
                     model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
 
-                Userprofile newUserprofile = new Userprofile
+                UserProfile newUserProfile = new UserProfile
                 {
                     Name = model.Name,
                     // Store the file name in PhotoPath property of the UserProfile object
                     // which gets saved to the UserProfiles database table
                     Image = uniqueFileName
                 };  
-                 _db.UserProfiles.Add(newUserprofile);
+                 _db.UserProfiles.Add(newUserProfile);
                 _db.SaveChanges();  
         }
         
@@ -78,18 +78,17 @@ namespace TripPlanner.Controllers
         {
             var thisUserProfile = _db.UserProfiles
                 .Include(userProfile => userProfile.Trips)
-                .ThenInclude(join => join.Trip)
-                .FirstOrDefault(userProfile => userProfile.UserprofileId == id);
+                .FirstOrDefault(userProfile => userProfile.UserProfileId == id);
             return View(thisUserProfile);
         }
         public ActionResult Edit(int id)
         {
-            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserprofileId == id);
+            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
             return View(thisUserProfile);
         }
 
         [HttpPost]
-        public ActionResult Edit(Userprofile userProfile)
+        public ActionResult Edit(UserProfile userProfile)
         {
             _db.Entry(userProfile).State = EntityState.Modified;
             _db.SaveChanges();
@@ -99,7 +98,7 @@ namespace TripPlanner.Controllers
 
         public ActionResult Delete(int id)
         {
-            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserprofileId == id);
+            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
             return View(thisUserProfile);
         }
 
@@ -107,7 +106,7 @@ namespace TripPlanner.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserprofileId == id);
+            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
 
             _db.UserProfiles.Remove(thisUserProfile);
             _db.SaveChanges();

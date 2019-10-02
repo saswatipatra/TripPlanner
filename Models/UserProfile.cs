@@ -6,10 +6,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TripPlanner.Models
 {
     [Table("userprofiles")]
-    public class Userprofile
+    public class UserProfile
     {
         [Key]
-        public int UserprofileId { get; set; }
+        public int UserProfileId { get; set; }
        // public int ApplicationUserId { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
@@ -18,7 +18,7 @@ namespace TripPlanner.Models
         public string Location { get; set; }
         
         public ICollection<Trip> Trips { get; set; } 
-        public Userprofile()
+        public UserProfile()
         {
             this.Trips = new HashSet<Trip>();
            
