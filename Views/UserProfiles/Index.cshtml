@@ -1,0 +1,23 @@
+@{
+    Layout = "_Layout";
+}
+
+@model TripPlanner.Models
+
+<h2>User - @Model.Name</h2>
+<hr>
+@Html.ActionLink("Edit User Profile", "Edit", new { id = Model.UserProfileId })<br>
+<hr>
+<ul>
+    <li>Home: @Html.DisplayFor(modelItem => Model.Location)</li>
+</ul>
+<hr>
+<h5>Trips for @Model.Name</h5>
+@foreach (var trip in Model.Trip)
+{
+    <ul>
+        <li>Name: @Html.ActionLink($"{trip.TripName}", "Details", "Trips", new { id = trip.TripId})</li>
+       
+    </ul>
+}
+@Html.ActionLink("Add a Trip", "Create", "Trips", new { id = Model.UserProfileId })<br>
