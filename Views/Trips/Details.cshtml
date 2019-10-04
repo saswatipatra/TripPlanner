@@ -1,0 +1,23 @@
+@{
+    Layout = "_Layout";
+}
+
+@model TripPlanner.Models
+
+<h2>Trip Name - @Model.TripName</h2>
+<hr>
+@Html.ActionLink("Edit Trip", "Edit", new { id = Model.TripId})<br>
+@Html.ActionLink("Delete Trip", "Delete", new { id = Model.TripId })
+<hr>
+<ul>
+    <li>Trip Location: @Html.DisplayFor(modelItem => Model.TripLocation)</li>
+    <li>Journey Date: @Model.TripStartDate.ToString("MM/dd/yyyy")</li>
+    <li>Retrun Date: @Model.TripEndDate.ToString("MM/dd/yyyy")</li>
+    
+</ul>
+<hr>
+
+
+
+<hr>
+@Html.ActionLink("Back", "Index","UserProfiles")

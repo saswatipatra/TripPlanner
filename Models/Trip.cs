@@ -13,8 +13,8 @@ namespace TripPlanner.Models
         public int UserProfileId {get; set;}
         public string TripName { get; set; }
         public string TripLocation {get; set;}
-        public string TripStartDate { get; set; }
-        public string TripEndDate { get; set; }
+        public DateTime TripStartDate { get; set; }
+        public DateTime TripEndDate { get; set; }
 
         public ICollection<Day> Days { get; set; }
 
