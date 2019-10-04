@@ -10,7 +10,7 @@ namespace TripPlanner.Models
         [Key]
         
         public int TripId {get; set;}
-        public int UserId {get; set;}
+        public int UserProfileId {get; set;}
         public string TripName { get; set; }
         public string TripLocation {get; set;}
         public string TripStartDate { get; set; }

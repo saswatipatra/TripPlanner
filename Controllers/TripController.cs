@@ -23,8 +23,9 @@ namespace TripPlanner.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewBag.UserProfileId= id;
             return View();
         }
 
