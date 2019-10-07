@@ -6,7 +6,7 @@
 @using Microsoft.AspNetCore.Identity
 @model RegisterViewModel
 
-<div id="registerCircle">
+<div id="registerUersProfile">
     <div class="text-center" id="registerTitle">
         <h1 class="display-4 registerDisplay">REGISTER</h1>
         <h4 class="registerDisplay">START CONNECTING</h4>
@@ -30,12 +30,9 @@
                 <input class="btn btn-outline-secondary button-styling-solid" value="Register" type="submit"/>
             }
             <p>@ViewBag.ErrorMessage</p>
-            <!-- move this back into form once we implement database ??-->
             <a href="/Account/Login"><button class="btn btn-outline-secondary button-styling-solid" type="submit" >LOG IN INSTEAD</button></a>
             <div class="field-validation-valid" data-valmsg-for="controlName" data-valmsg-replace="true"></div>
         </div>
     </div>
 </div>
 
-<div id="landingCircle2"></div>
-<div id="landingCircle3"></div>
