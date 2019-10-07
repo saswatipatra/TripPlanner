@@ -27,10 +27,11 @@ namespace TripPlanner.Controllers
             this.hostingEnvironment = hostingEnvironment;
         }
 
-        public ActionResult Index()
+         [HttpGet("{id}")]
+        public ActionResult <UserProfile> Index( string id)
         {
-            List<UserProfile> model = _db.UserProfiles.ToList();
-            return View(model);
+            return _db.UserProfiles
+                    .FirstOrDefault(x=> x.ApplicationUserId == id);
         }
         [HttpGet]
         public ActionResult Create()
