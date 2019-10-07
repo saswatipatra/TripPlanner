@@ -14,7 +14,7 @@
             @using (Html.BeginForm("Edit", "UserProfiles", FormMethod.Post,new{ enctype="multipart/form-data"}))
             {
                 @Html.HiddenFor(model => model.ApplicationUserId)
-                @Html.HiddenFor(model => model.UserprofileId)
+                @Html.HiddenFor(model => model.UserProfileId)
                 <p for="Name" class="userInformationTitle">NAME</p>
                 <p class="userInformationDisplay"><input name="Name" type="text" class="form-control" value="@Model.Name"></p>
                 <p for="Gender" class="userInformationTitle">GENDER</p>

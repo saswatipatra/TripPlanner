@@ -1,8 +1,8 @@
 @{
     Layout = "_Layout";
 }
-
-@model TripPlanner.Models
+@using TripPlanner.ViewModels;
+@model TripPlanner.Models.UserProfile;
 
 <h2>User - @Model.Name</h2>
 <hr>
@@ -13,7 +13,7 @@
 </ul>
 <hr>
 <h5>Trips for @Model.Name</h5>
-@foreach (var trip in Model.Trip)
+@foreach (var trip in Model.Trips)
 {
     <ul>
         <li>Name: @Html.ActionLink($"{trip.TripName}", "Details", "Trips", new { id = trip.TripId})</li>

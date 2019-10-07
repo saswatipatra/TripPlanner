@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Hosting;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TripPlanner.Controllers
 {
@@ -16,10 +18,12 @@ namespace TripPlanner.Controllers
     {
         private readonly TripPlannerContext _db;
         private readonly IHostingEnvironment hostingEnvironment;
+       private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserProfilesController(TripPlannerContext db, IHostingEnvironment hostingEnvironment)
+        public UserProfilesController(TripPlannerContext db, UserManager<ApplicationUser> userManager, IHostingEnvironment hostingEnvironment)
         {
             _db = db;
+            _userManager = userManager;
             this.hostingEnvironment = hostingEnvironment;
         }
 
@@ -81,12 +85,15 @@ namespace TripPlanner.Controllers
                 .FirstOrDefault(userProfile => userProfile.UserProfileId == id);
             return View(thisUserProfile);
         }
+
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
             return View(thisUserProfile);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(UserProfile userProfile)
         {
@@ -96,13 +103,14 @@ namespace TripPlanner.Controllers
 
         }
 
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
             return View(thisUserProfile);
         }
 
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

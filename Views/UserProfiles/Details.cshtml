@@ -1,3 +1,5 @@
+@using TripPlanner.ViewModels;
+@model TripPlanner.Models.UserProfile;
 @{
   Layout = "_Layout";
 }
@@ -7,7 +9,6 @@
     var photoPath = "~/images/" + (Model.Image ?? "noimage.jpg");
 }
 
-@model TripPlannerCreateViewModel
 <div class="container-fluid">   
     <div id="userDetails">
         <h2 id="userNameDisplay">@Model.Name</h2>

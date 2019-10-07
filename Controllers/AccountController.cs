@@ -40,8 +40,8 @@ namespace TripPlanner.Controllers
                 IdentityResult result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    var newUserProfile = new TripPlannerCreateViewModel { Name = model.UserName, Gender = "", Age = 0, Photo = "", Location = "", ApplicationUserId = user.Id };
-                    UserProfile.Create(newUserProfile);
+                    var newUserProfile = new TripPlannerCreateViewModel { Name = model.UserName, Gender = "", Age = 0, Location = "", ApplicationUserId = user.Id };
+                    UserProfile.CreateUserProfile(newUserProfile);
                     return RedirectToAction("Login");
                 }
                 else
@@ -69,7 +69,7 @@ namespace TripPlanner.Controllers
             _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Landing", "Home");
+                return RedirectToAction("Index", "UserProfiles");
             }
             else
             {

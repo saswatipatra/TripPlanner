@@ -3,16 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using TripPlanner.Models;
+using Microsoft.AspNetCore.Identity;
+//using Microsoft.AspNetCore.Authorization;
 
 namespace TripPlanner.Controllers
 {
     public class TripsController : Controller
     {
         private readonly TripPlannerContext _db;
-
-        public TripsController(TripPlannerContext db)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public TripsController(TripPlannerContext db, UserManager<ApplicationUser> userManager)
         {
             _db = db;
+            _userManager = userManager;
         }
 
         public ActionResult Index()
