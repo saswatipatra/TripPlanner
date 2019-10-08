@@ -28,26 +28,7 @@ namespace TripPlanner.Models
             this.Trips = new HashSet<Trip>();
            
         }
-        //  public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
-        // {
-        //     var tcs = new TaskCompletionSource<IRestResponse>();
-        //     theClient.ExecuteAsync(theRequest, response => {
-        //         tcs.SetResult(response);
-        //     });
-        //     return tcs.Task;
-        // }
-        //  public static void CreateUserProfile(TripPlannerCreateViewModel userprofile)
-        // {
-        //     var client = new RestClient("http://localhost:5000/");
-        //     var request = new RestRequest("userprofiles/", Method.POST);
-        //     request.AddJsonBody(userprofile);
-        //     var response = new RestResponse();
-
-        //     Task.Run(async () =>
-        //     {
-        //         response = await GetResponseContentAsync(client, request) as RestResponse;
-        //     }).Wait();
-        // }
+         
         
     }
 }

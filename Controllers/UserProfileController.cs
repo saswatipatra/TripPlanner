@@ -28,14 +28,15 @@ namespace TripPlanner.Controllers
         }
 
          [HttpGet("{id}")]
-        public ActionResult <UserProfile> Index( string id)
+        public ActionResult <UserProfile> Index( int id)
         {
             return _db.UserProfiles
-                    .FirstOrDefault(x=> x.ApplicationUserId == id);
+                    .FirstOrDefault(x=> x.UserProfileId == id);
         }
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
+            ViewBag.ApplicationUserId= id;
             return View();
         }
 
@@ -45,6 +46,7 @@ namespace TripPlanner.Controllers
         {   
             if (ModelState.IsValid)
             {
+                Console.WriteLine("I'm inside user profile controller create function.....");
                 string uniqueFileName = null;
 
                 // If the Photo property on the incoming model object is not null, then the user
