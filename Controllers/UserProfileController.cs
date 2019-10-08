@@ -28,7 +28,7 @@ namespace TripPlanner.Controllers
         }
 
          [HttpGet("{id}")]
-        public ActionResult <UserProfile> Index( int id)
+        public ActionResult <UserProfile> Index(int id)
         {
             return _db.UserProfiles
                     .FirstOrDefault(x=> x.UserProfileId == id);
@@ -73,13 +73,18 @@ namespace TripPlanner.Controllers
                     Name = model.Name,
                     // Store the file name in PhotoPath property of the UserProfile object
                     // which gets saved to the UserProfiles database table
-                    Image = uniqueFileName
+                    Image = uniqueFileName,
+                    Gender= model.Gender,
+                    Age= model.Age,
+                    Location = model.Location,
+                    ApplicationUserId= model.ApplicationUserId
                 };  
                  _db.UserProfiles.Add(newUserProfile);
                 _db.SaveChanges();  
+                ViewBag.UserProfileId= newUserProfile.UserProfileId;
         }
         
-            return RedirectToAction("Index");
+            return RedirectToAction("Index, new { id = ViewBag.UserProfile.Id }");
         }
         public ActionResult Details(int id)
         {

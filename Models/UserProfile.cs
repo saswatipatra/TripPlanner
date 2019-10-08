@@ -22,11 +22,12 @@ namespace TripPlanner.Models
         public string Image { get; set; }
         public string Location { get; set; }
         
-        public ICollection<Trip> Trips { get; set; } 
+        public virtual ICollection<Trip> Trips { get; set; } 
+        public virtual ApplicationUser User { get; set; }
+
         public UserProfile()
         {
             this.Trips = new HashSet<Trip>();
-           
         }
          
         

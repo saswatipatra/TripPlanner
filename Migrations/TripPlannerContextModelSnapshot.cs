@@ -283,7 +283,7 @@ namespace TripPlanner.Migrations
 
             modelBuilder.Entity("TripPlanner.Models.Day", b =>
                 {
-                    b.HasOne("TripPlanner.Models.Trip")
+                    b.HasOne("TripPlanner.Models.Trip", "Trip")
                         .WithMany("Days")
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -291,7 +291,7 @@ namespace TripPlanner.Migrations
 
             modelBuilder.Entity("TripPlanner.Models.Trip", b =>
                 {
-                    b.HasOne("TripPlanner.Models.UserProfile")
+                    b.HasOne("TripPlanner.Models.UserProfile", "UserProfile")
                         .WithMany("Trips")
                         .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.Cascade);

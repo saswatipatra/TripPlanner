@@ -17,7 +17,8 @@ namespace TripPlanner.Models
         public DateTime TripStartDate { get; set; }
         public DateTime TripEndDate { get; set; }
 
-        public ICollection<Day> Days { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
+        public virtual ICollection<Day> Days { get; set; }
 
         public Trip()
         {

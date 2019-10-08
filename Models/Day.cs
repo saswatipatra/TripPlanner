@@ -11,7 +11,7 @@ namespace TripPlanner.Models
         public int DayId { get; set; }
         public int TripId {get; set;}
         public string Note { get; set; }
-       public DateTime Date { get; set; }
-       
+        public DateTime Date { get; set; }
+        public virtual Trip Trip { get; set; }
     }
 }
