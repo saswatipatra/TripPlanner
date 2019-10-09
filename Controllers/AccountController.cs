@@ -51,8 +51,8 @@ namespace TripPlanner.Controllers
                 IdentityResult result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    ViewBag.ApplicationUserId= user.Id;
-                    Console.WriteLine("registration successful with user Id as ", ViewBag.ApplicationUserId);
+                    ViewBag.ApplicationUserId= user.Id.ToString();
+                    Console.WriteLine("registration successful with user Id as {0} ", ViewBag.ApplicationUserId);
                                         
                    return RedirectToAction("Create", "UserProfiles", new { id = ViewBag.ApplicationUserId});
                    
@@ -83,8 +83,9 @@ namespace TripPlanner.Controllers
             _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
-                return RedirectToAction("Index", "UserProfiles", new { id = ViewBag.UserProfileId});
+                ApplicationUser usr = await GetCurrentUserAsync();
+                Console.WriteLine("Account login page {0}", usr?.Id);
+               return RedirectToAction("Index", "UserProfiles", new { id = usr?.Id});
             }
             else
             {
@@ -98,5 +99,7 @@ namespace TripPlanner.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
     }
 }

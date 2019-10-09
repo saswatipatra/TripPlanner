@@ -28,10 +28,10 @@ namespace TripPlanner.Controllers
         }
 
          [HttpGet("{id}")]
-        public ActionResult <UserProfile> Index(int id)
+        public ActionResult <UserProfile> Index(string id)
         {
             return _db.UserProfiles
-                    .FirstOrDefault(x=> x.UserProfileId == id);
+                    .FirstOrDefault(x=> x.ApplicationUserId == id);
         }
         [HttpGet]
         public ActionResult Create(string id)
@@ -44,6 +44,7 @@ namespace TripPlanner.Controllers
         [HttpPost]
         public IActionResult Create(TripPlannerCreateViewModel model)
         {   
+
             if (ModelState.IsValid)
             {
                 Console.WriteLine("I'm inside user profile controller create function.....");
@@ -78,13 +79,14 @@ namespace TripPlanner.Controllers
                     Age= model.Age,
                     Location = model.Location,
                     ApplicationUserId= model.ApplicationUserId
-                };  
+                }; 
+                  Console.WriteLine("user profile create with user Id as {0} ", model.ApplicationUserId);
                  _db.UserProfiles.Add(newUserProfile);
                 _db.SaveChanges();  
-                ViewBag.UserProfileId= newUserProfile.UserProfileId;
+               
         }
-        
-            return RedirectToAction("Index, new { id = ViewBag.UserProfile.Id }");
+            Console.WriteLine("Redirected to UserProfile index {0} ", model.ApplicationUserId);
+            return RedirectToAction("Index","UserProfiles", new { id = model.ApplicationUserId });
         }
         public ActionResult Details(int id)
         {

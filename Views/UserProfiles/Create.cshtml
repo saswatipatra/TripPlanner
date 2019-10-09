@@ -9,7 +9,7 @@
         <div class="card bg-secondary userInformationCard">
             @using (Html.BeginForm("Create", "UserProfiles", FormMethod.Post,new{ enctype="multipart/form-data"}))
             {
-                <input name="ApplicationId" type="hidden" value="@ViewBag.ApplicationId">
+                <input name="ApplicationUserId" type="hidden" value="@ViewBag.ApplicationUserId">
                 @Html.LabelFor(model => model.Name)
                 @Html.TextBoxFor(model => model.Name)
 
