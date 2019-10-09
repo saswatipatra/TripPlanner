@@ -83,9 +83,14 @@ namespace TripPlanner.Controllers
             _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                ApplicationUser usr = await GetCurrentUserAsync();
-                Console.WriteLine("Account login page {0}", usr?.Id);
-               return RedirectToAction("Index", "UserProfiles", new { id = usr?.Id});
+                Console.WriteLine("AccountController userContext {0}", User);
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                }
+                Console.WriteLine("Account login page test {0}", user.Id);
+               return RedirectToAction("Index", "UserProfiles", new { id = user.Id});
             }
             else
             {
@@ -100,6 +105,5 @@ namespace TripPlanner.Controllers
             return RedirectToAction("Login");
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
     }
 }

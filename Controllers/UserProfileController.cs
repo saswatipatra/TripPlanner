@@ -27,7 +27,7 @@ namespace TripPlanner.Controllers
             this.hostingEnvironment = hostingEnvironment;
         }
 
-         [HttpGet("{id}")]
+        [HttpGet] 
         public ActionResult <UserProfile> Index(string id)
         {
             return _db.UserProfiles
