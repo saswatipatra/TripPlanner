@@ -32,7 +32,11 @@ namespace TripPlanner.Controllers
         {
             var thisUserProfile = _db.UserProfiles
                     .FirstOrDefault(x=> x.ApplicationUserId == id);
-                    return View(thisUserProfile);
+
+            ViewBag.Trips = _db.Trips
+                .Where(trips => trips.TripId == thisUserProfile.UserProfileId)
+                .ToList();
+            return View(thisUserProfile);
         }
         [HttpGet]
         public ActionResult Create(string id)

@@ -2,20 +2,32 @@
     Layout = "_Layout";
     ViewData["Title"] = "TripPlanner";
 }
+
 @using System.Security.Claims;
+@model TripPlanner.Models.UserProfile;
+
+
 
 @if (User.Identity.IsAuthenticated) 
 {
-    <div class="text-left" id="landingTitle">
-        <h1 class="display-4">Welcome back, @User.Identity.Name </h1>
-        <h4>Ready to get back to it?</h4>
-        <a href="/UserProfiles/Index/@ViewBag.ApplicationUserId"><button class="btn btn-outline-dark button-styling-solid" id="button-started" type="submit">GO HOME</button></a>
-    <br>
-    @using (Html.BeginForm("LogOff", "Account"))
-                {
-                    <input type="submit"class="btn btn-default" value="LogOff" />
-                }
-    </div>
+<div class= "row">
+<div class= "col-md-2">
+<p><span style = "font-size: 35px;">&#129333;&#127995;</span>
+<a href="/UserProfiles/Index/@ViewBag.ApplicationUserId"><button class="btn btn-outline-dark button-styling-solid" id="button-started" type="submit">Check Your Dashboard</button></a></p>
+</div>
+<div class = "col-md-2">
+@using (Html.BeginForm("LogOff", "Account"))
+        {
+         <input type="submit"class="btn btn-default" value="LogOff" />
+        }
+</div>
+</div>
+
+<div class="text-left" id="landingTitle">
+    <h1 class="display-4">Welcome  </h1>
+    <h1> Hello!!! @User.Identity.Name</h1>
+    <h4>Ready to get back to it?</h4>
+</div>
 }
 else
 {

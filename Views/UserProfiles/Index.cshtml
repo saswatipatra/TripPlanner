@@ -4,21 +4,53 @@
 @using TripPlanner.ViewModels;
 @model TripPlanner.Models.UserProfile;
 
-<h2>User - @Model.Name</h2>
+<br>
+<div class= "row">
+<div class= "col-md-3">
+<p><span style = "font-size: 35px;">🗂</span> @Html.ActionLink("Check your Dashboard", "Index", "UserProfiles", new { id = Model.ApplicationUserId }) </p>
+
+</div>
+<div class = "col-md-3">
+<p><span style = "font-size: 35px;">👤</span> @Html.ActionLink("Check your Profile", "Details", "UserProfiles", new { id = Model.UserProfileId }) </p>
+</div>
+<div class = "col-md-3">
+<p><span style = "font-size: 35px;">✍</span> @Html.ActionLink("Edit Profile", "Edit", "UserProfiles", new { id = Model.UserProfileId }) </p>
+</div>
+<div class = "col-md-3">
+@using (Html.BeginForm("LogOff", "Account"))
+        {
+         <input type="submit"class="btn btn-default" value=" 💤 LogOff" />
+        }
+</div>
+</div>
 <hr>
-@Html.ActionLink("Edit User Profile", "Edit", new { id = Model.UserProfileId })<br>
+
+<br>
+<div class= "row">
+<div class= "col-lg-10">
+<h2>Hello...@Model.Name</h2>
+</div>
+<div class ="col-lg-2">
+<p>🏡Location: @Html.DisplayFor(modelItem => Model.Location)</p>
+</div>
+</div>
 <hr>
-<ul>
-    <li>Home: @Html.DisplayFor(modelItem => Model.Location)</li>
-</ul>
+<br>
 <hr>
-<h5>Trips for @Model.Name</h5>
+
+<h5> @Model.Name's Trip.... 🏖</h5>
+<br>
+@if(@ViewBag.Trips.Count == 0)
+    {
+        <p>You need to plan for a Vaccation 🏕....</p>
+    }
 @foreach (var trip in Model.Trips)
 {
     <ul>
-        <li>Name: @Html.ActionLink($"{trip.TripName}", "Details", "Trips", new { id = trip.TripId})</li>
+            <li>Name: @Html.ActionLink($"{trip.TripName}", "Details", "Trips", new { id = trip.TripId})</li>
        
     </ul>
 }
-@Html.ActionLink("Add a Trip", "Create", "Trips", new { id = Model.UserProfileId })<br>
-@Html.ActionLink("Check your Profile", "Details", "UserProfiles", new { id = Model.UserProfileId })<br>
+<br>
+<hr>
+➡@Html.ActionLink("Add a Trip", "Create", "Trips", new { id = Model.UserProfileId })<br>
