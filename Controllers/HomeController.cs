@@ -37,6 +37,11 @@ namespace TripPlanner.Controllers
             return View();
         }
 
+        public IActionResult LogOff()
+        {
+            return RedirectToAction("LogOff", "Account");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

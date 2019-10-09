@@ -110,26 +110,26 @@ namespace TripPlanner.Controllers
         {
             _db.Entry(userProfile).State = EntityState.Modified;
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","UserProfiles", new { id = userProfile.ApplicationUserId });
 
         }
 
-        [Authorize]
-        public ActionResult Delete(int id)
-        {
-            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
-            return View(thisUserProfile);
-        }
+        // [Authorize]
+        // public ActionResult Delete(int id)
+        // {
+        //     var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
+        //     return View(thisUserProfile);
+        // }
 
-        [Authorize]
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
+        // [Authorize]
+        // [HttpPost, ActionName("Delete")]
+        // public ActionResult DeleteConfirmed(int id)
+        // {
+        //     var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
 
-            _db.UserProfiles.Remove(thisUserProfile);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //     _db.UserProfiles.Remove(thisUserProfile);
+        //     _db.SaveChanges();
+        //     return RedirectToAction("Index");
+        // }
     }
 }

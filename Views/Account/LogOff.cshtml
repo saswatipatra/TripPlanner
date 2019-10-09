@@ -1,0 +1,23 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "LogOff";
+}
+
+@using System.Security.Claims
+
+<h2>LogOff Page</h2>
+<hr/>
+@if(User.Identity.IsAuthenticated)
+{
+    <p>Hello @User.Identity.Name!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="LogOff" />
+    }
+}
+else
+{
+<p>No one is Login ....</p>
+<p>@Html.ActionLink("Register", "Register","Account")</p>
+<p>@Html.ActionLink("Login", "Login", "Account")</p>
+}
