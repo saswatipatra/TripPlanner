@@ -30,8 +30,9 @@ namespace TripPlanner.Controllers
         [HttpGet] 
         public ActionResult <UserProfile> Index(string id)
         {
-            return _db.UserProfiles
+            var thisUserProfile = _db.UserProfiles
                     .FirstOrDefault(x=> x.ApplicationUserId == id);
+                    return View(thisUserProfile);
         }
         [HttpGet]
         public ActionResult Create(string id)

@@ -28,7 +28,7 @@ namespace TripPlanner.Controllers
                     return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
                 }
                 Console.WriteLine("home index page test {0}", user.Id);
-                ViewBag.ApplicationUserId= user.Id.ToString();
+                ViewBag.ApplicationUserId = user.Id.ToString();
             return View();
         }
 
