@@ -25,8 +25,9 @@ namespace TripPlanner.Controllers
                 var user = await _userManager.GetUserAsync(User);
                 if (user == null)
                 {
+                    Console.WriteLine("login for first time");
                     return View();
-                    //return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                    
                 }
                 Console.WriteLine("home index page test {0}", user.Id);
                 ViewBag.ApplicationUserId = user.Id.ToString();

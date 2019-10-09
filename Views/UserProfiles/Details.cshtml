@@ -26,7 +26,7 @@
             </div>
             <hr>
             <p>@Html.ActionLink("Edit UserProfiles", "Edit", new { id = Model.UserProfileId })</p>
-            <p>@Html.ActionLink("Home Page UserProfiles", "Index")</p>
+            <p>@Html.ActionLink("Home Page UserProfiles", "Index", new { id = Model.ApplicationUserId })</p>
             <p>@Html.ActionLink("Add a Trip", "Create"," Trips", new { id = Model.UserProfileId })</p>
            
         </div>
