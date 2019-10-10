@@ -3,7 +3,9 @@
 }
 @using TripPlanner.ViewModels;
 @model TripPlanner.Models.UserProfile;
-
+@{
+    var photoPath = "~/images/" + (Model.Image ?? "noimage.jpg");
+}
 <br>
 <div class= "row">
 <div class= "col-md-3">
@@ -28,7 +30,9 @@
 <br>
 <div class= "row">
 <div class= "col-lg-10">
-<h2>Hello...@Model.Name</h2>
+      
+<h2><img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" /> </h2>
+<h2> @Model.Name</h2>
 </div>
 <div class ="col-lg-2">
 <p>🏡Location: @Html.DisplayFor(modelItem => Model.Location)</p>
