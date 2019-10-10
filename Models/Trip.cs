@@ -12,6 +12,7 @@ namespace TripPlanner.Models
         
         public int TripId {get; set;}
         public int UserProfileId {get; set;}
+        public string ApplicationUserId {get;set;}
         public string TripName { get; set; }
         public string TripLocation {get; set;}
         public DateTime TripStartDate { get; set; }

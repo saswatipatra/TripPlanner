@@ -1,12 +1,14 @@
 @{
     Layout = "_Layout";
 }
-
+@model TripPlanner.Models.UserProfile;
+<div class="bg-image"></div>
 <h1>Add a New Trip</h1>
 <hr>
 @using (Html.BeginForm())
 {
    <input name="UserProfileId" type="hidden" value="@ViewBag.UserProfileId">
+    <input name="ApplicationUserId" type="hidden" value="@ViewBag.ApplicationUserId">
     
     <div class="form-group">
         <label for="TripName">Trip Name</label>
@@ -28,4 +30,5 @@
     <input type="submit" value="Add Trip" class="btn btn-primary"/><br><br>
 }
 
-@Html.ActionLink("Cancel", "Index", "UserProfiles", new { id = @ViewBag.UserProfileId })
+@Html.ActionLink("Cancel", "Index", "UserProfiles", new { id = @ViewBag.ApplicationUserId})
+

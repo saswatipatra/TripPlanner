@@ -3,7 +3,7 @@
 }
 
 @model TripPlanner.Models.Trip;
-
+<div class="bg-image"></div>
 <h2>Trip Name - @Model.TripName</h2>
 <hr>
 @Html.ActionLink("Edit Trip", "Edit", new { id = Model.TripId})<br>
@@ -20,4 +20,5 @@
 
 
 <hr>
-@Html.ActionLink("Back", "Index","UserProfiles")
+@Html.ActionLink("Back", "Index","UserProfiles", new { id = Model.ApplicationUserId} )
+

@@ -34,10 +34,11 @@ namespace TripPlanner.Controllers
                     .FirstOrDefault(x=> x.ApplicationUserId == id);
 
             ViewBag.Trips = _db.Trips
-                .Where(trips => trips.TripId == thisUserProfile.UserProfileId)
+                .Where(trips => trips.UserProfileId == thisUserProfile.UserProfileId)
                 .ToList();
             return View(thisUserProfile);
         }
+
         [HttpGet]
         public ActionResult Create(string id)
         {
@@ -101,14 +102,14 @@ namespace TripPlanner.Controllers
             return View(thisUserProfile);
         }
 
-        [Authorize]
+      
         public ActionResult Edit(int id)
         {
             var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
             return View(thisUserProfile);
         }
 
-        [Authorize]
+        
         [HttpPost]
         public ActionResult Edit(UserProfile userProfile)
         {
@@ -118,22 +119,6 @@ namespace TripPlanner.Controllers
 
         }
 
-        // [Authorize]
-        // public ActionResult Delete(int id)
-        // {
-        //     var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
-        //     return View(thisUserProfile);
-        // }
-
-        // [Authorize]
-        // [HttpPost, ActionName("Delete")]
-        // public ActionResult DeleteConfirmed(int id)
-        // {
-        //     var thisUserProfile = _db.UserProfiles.FirstOrDefault(UserProfiles => UserProfiles.UserProfileId == id);
-
-        //     _db.UserProfiles.Remove(thisUserProfile);
-        //     _db.SaveChanges();
-        //     return RedirectToAction("Index");
-        // }
+        
     }
 }

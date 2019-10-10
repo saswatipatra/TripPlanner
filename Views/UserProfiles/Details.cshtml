@@ -8,7 +8,7 @@
     ViewBag.Title = "Course Details";
     var photoPath = "~/images/" + (Model.Image ?? "noimage.jpg");
 }
-
+<div class="bg-image"></div>
 <div class="container-fluid">   
     <div id="userDetails">
         <h2 id="userNameDisplay">@Model.Name</h2>
@@ -17,12 +17,12 @@
         </div>
         <div class="card userCardStyle">
             <div class="card bg-secondary userInformationCard">
-                <p class="userInformationTitle">GENDER</p>
-                <p class="userInformationDisplay">@Html.DisplayFor(model => Model.Gender)</p>
-                <p class="userInformationTitle">AGE</p>
-                <p class="userInformationDisplay">@Html.DisplayFor(model => Model.Age)</p>
-                <p class="userInformationTitle">LOCATION</p>
-                <p class="userInformationDisplay">@Html.DisplayFor(model => Model.Location)</p>
+                <p class="userInformationTitle">GENDER: @Html.DisplayFor(model => Model.Gender)</p>
+                <br>
+                <p class="userInformationTitle">AGE: @Html.DisplayFor(model => Model.Age)</p>
+               <br>
+                <p class="userInformationTitle">LOCATION: @Html.DisplayFor(model => Model.Location)</p>
+                <br>
             </div>
             <hr>
             <p>@Html.ActionLink("Edit UserProfiles", "Edit", new { id = Model.UserProfileId })</p>
@@ -32,4 +32,5 @@
         </div>
     </div>
 </div>
+
 

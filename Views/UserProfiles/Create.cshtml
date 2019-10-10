@@ -3,7 +3,7 @@
 @{
     Layout = "_Layout";
 }
-
+<div class="bg-image"></div>
  <div class="container-fluid">   
 
         <div class="card bg-secondary userInformationCard">
@@ -12,22 +12,19 @@
                 <input name="ApplicationUserId" type="hidden" value="@ViewBag.ApplicationUserId">
                 @Html.LabelFor(model => model.Name)
                 @Html.TextBoxFor(model => model.Name)
-
+                <br>
                 @Html.LabelFor(model => model.Gender)
                 @Html.TextBoxFor(model => model.Gender)
-
+                <br>
                 @Html.LabelFor(model => model.Age)
                 @Html.TextBoxFor(model => model.Age)
-
+                <br>
                 @Html.LabelFor(model => model.Photo)
                 @Html.TextBoxFor(model => model.Photo, new { type = "file" })
-
+                <br>
                 @Html.LabelFor(model => model.Location)
                 @Html.TextBoxFor(model => model.Location)
-
-
-
-                
+                <br>
 <hr>
                 <input type="submit" value="SAVE" class=" button-styling-solid"/>
                 
@@ -45,11 +42,7 @@
         </script>
     }
 }
-            }
-
-            
-            
-        </div>
+      </div>
     </div>
 </div>
 </div>

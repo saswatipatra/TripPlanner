@@ -7,6 +7,7 @@
     var photoPath = "~/images/" + (Model.Image ?? "noimage.jpg");
 }
 <br>
+<div class="bg-image"></div>
 <div class= "row">
 <div class= "col-md-3">
 <p><span style = "font-size: 35px;">🗂</span> @Html.ActionLink("Check your Dashboard", "Index", "UserProfiles", new { id = Model.ApplicationUserId }) </p>
@@ -58,3 +59,4 @@
 <br>
 <hr>
 ➡@Html.ActionLink("Add a Trip", "Create", "Trips", new { id = Model.UserProfileId })<br>
+

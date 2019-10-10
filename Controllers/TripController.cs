@@ -29,6 +29,9 @@ namespace TripPlanner.Controllers
         public ActionResult Create(int id)
         {
             ViewBag.UserProfileId= id;
+            var thisUserProfile = _db.UserProfiles
+                    .FirstOrDefault(x=> x.UserProfileId == id);
+            ViewBag.ApplicationUserId= thisUserProfile.ApplicationUserId;
             return View();
         }
 
@@ -37,7 +40,7 @@ namespace TripPlanner.Controllers
         {
             _db.Trips.Add(trip);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","UserProfiles", new { id = trip.ApplicationUserId });
         }
 
         public ActionResult Details(int id)
@@ -80,7 +83,7 @@ namespace TripPlanner.Controllers
                 .FirstOrDefault(trips => trips.TripId == id);
             _db.Trips.Remove(thisTrip);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+             return RedirectToAction("Index","UserProfiles", new { id = thisTrip.UserProfileId });
         }
     }
 }

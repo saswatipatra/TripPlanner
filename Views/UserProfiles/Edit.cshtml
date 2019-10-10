@@ -3,7 +3,7 @@
 @{
     Layout = "_Layout";
 }
-
+<div class="bg-image"></div>
  <div class="container-fluid">   
 <div  id="userDetails">
     <h2 id="userNameDisplay">@Model.Name</h2>
@@ -17,31 +17,19 @@
                 @Html.HiddenFor(model => model.UserProfileId)
                 @Html.HiddenFor(model => model.Image)
                 <p for="Name" class="userInformationTitle">NAME</p>
-                <p class="userInformationDisplay"><input name="Name" type="text" class="form-control" value="@Model.Name"></p>
+                <p class="userInformationDisplay"><input name="Name" type="text" class="form-control" value="@Model.Name"></p><br>
                 <p for="Gender" class="userInformationTitle">GENDER</p>
-                <p class="userInformationDisplay"><input name="Gender" type="text" class="form-control" value="@Model.Gender"></p>
+                <p class="userInformationDisplay"><input name="Gender" type="text" class="form-control" value="@Model.Gender"></p><br>
                 <p class="userInformationTitle">AGE</p>
-                <p class="userInformationDisplay"><input name="Age" type="text" class="form-control" value="@Model.Age"></p>
+                <p class="userInformationDisplay"><input name="Age" type="text" class="form-control" value="@Model.Age"></p><br>
                 <p class="userInformationTitle">LOCATION</p>
-                <p class="userInformationDisplay"><input name="Location" type="text" class="form-control" value="@Model.Location"></p>
+                <p class="userInformationDisplay"><input name="Location" type="text" class="form-control" value="@Model.Location"></p><br>
                 <hr>
                 <input type="submit" value="SAVE" class=" button-styling-solid"/>
-                <a href="/userprofiles/"><button class="button-styling-solid">CANCEL</button></a>
+                <a href="/userprofiles/"><button class="button-styling-solid">CANCEL</button></a><br>
 
- <!-- @Html.ValidationSummary()
-
- @section Scripts {
-        <script>
-            $(document).ready(function () {
-                $('.custom-file-input').on("change", function () {
-                    var fileName = $(this).val().split("\\").pop();
-                    $(this).next('.custom-file-label').html(fileName);
-                });
-            });
-        </script>
-    } -->
 }
-            }
+            
 
             
             
@@ -49,3 +37,4 @@
     </div>
 </div>
 </div>
+

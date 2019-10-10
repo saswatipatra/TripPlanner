@@ -7,13 +7,13 @@
 @model TripPlanner.Models.UserProfile;
 
 
-
+<div class ="bg-image"></div>
 @if (User.Identity.IsAuthenticated) 
 {
 <div class= "row">
 <div class= "col-md-2">
-<p><span style = "font-size: 35px;">&#129333;&#127995;</span>
-<a href="/UserProfiles/Index/@ViewBag.ApplicationUserId"><button class="btn btn-outline-dark button-styling-solid" id="button-started" type="submit">Check Your Dashboard</button></a></p>
+    <p><span style = "font-size: 35px;">🗂</span> @Html.ActionLink("Check your Dashboard", "Index", "UserProfiles", new { id = @ViewBag.ApplicationUserId }) </p>
+
 </div>
 <div class = "col-md-2">
 @using (Html.BeginForm("LogOff", "Account"))
@@ -37,6 +37,7 @@ else
         <a href="/Account/Register"><button class="btn btn-outline-dark button-styling-solid" id="button-started" type="submit" >GET STARTED</button></a>
     </div>
 }
+
 
 
 

@@ -44,15 +44,20 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-    background-image:url('https://www.pixelstalk.net/wp-content/uploads/2016/03/Nature-Backgrounds-free-download.jpg');
-   
-  background-position: center;
+ 
+}
+
+.bg-image {
+  
+  background-image:url('https://www.pixelstalk.net/wp-content/uploads/2016/03/Nature-Backgrounds-free-download.jpg');
+   background-position: center;
   background-repeat:no-repeat;
   background-size: cover;
   background-attachment: fixed;
-    
-   
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
+
 .footer {
   position: absolute;
   bottom: 0;
